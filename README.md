@@ -18,9 +18,9 @@
     </div>
 </div>
 
-## 📋 `<a name="table">`Table of Contents`</a>`
+## 📋 `<a name="table">`Table of Contents `</a>`
 
-[https://youtu.be/kt0FrkQgw8w?t=6089](https://youtu.be/kt0FrkQgw8w?t=6089%E2%80%B8)
+***[https://youtu.be/kt0FrkQgw8w?t=6089](https://youtu.be/kt0FrkQgw8w?t=6089%E2%80%B8)***
 
 1. 🤖 [Introduction](#introduction)
 2. ⚙️ [Tech Stack](#tech-stack)
@@ -33,13 +33,13 @@
 
 ## 🚨 Tutorial
 
-This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, `<a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>`JavaScript Mastery`</b></a>`.
+This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, `<a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>`JavaScript Mastery `</b></a>`.
 
 If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects like these step-by-step in a beginner-friendly manner!
 
 <a href="https://youtu.be/kt0FrkQgw8w" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
 
-## `<a name="introduction">`🤖 Introduction`</a>`
+## `<a name="introduction">`🤖 Introduction `</a>`
 
 Built with React.js for handling the user interface, Three.js for rendering 3D elements, and styled with TailwindCSS, the 3D Minimalistic portfolio is a website project. The primary goal is to demonstrate the developer's skills in a unique manner that creates a lasting impact.
 
@@ -47,7 +47,7 @@ If you're getting started and need assistance or face any bugs, join our active 
 
 <a href="https://discord.com/invite/n6EdbFJ" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/618f4872-1e10-42da-8213-1d69e486d02e" /></a>
 
-## `<a name="tech-stack">`⚙️ Tech Stack`</a>`
+## `<a name="tech-stack">`⚙️ Tech Stack `</a>`
 
 - Node.js
 - React.js
@@ -58,7 +58,7 @@ If you're getting started and need assistance or face any bugs, join our active 
 - Vite
 - Tailwind CSS
 
-## `<a name="features">`🔋 Features`</a>`
+## `<a name="features">`🔋 Features `</a>`
 
 👉 **Immersive Hero**: An eye-catching 3D hacker room that responds to mouse movements, surrounded by animated mini-models.
 
@@ -78,7 +78,7 @@ If you're getting started and need assistance or face any bugs, join our active 
 
 and many more, including code architecture and reusability
 
-## `<a name="quick-start">`🤸 Quick Start`</a>`
+## `<a name="quick-start">`🤸 Quick Start `</a>`
 
 Follow these steps to set up the project locally on your machine.
 
@@ -125,7 +125,7 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
 
-## `<a name="snippets">`🕸️ Snippets`</a>`
+## `<a name="snippets">`🕸️ Snippets `</a>`
 
 <details>
 <summary><code>tailwind.config.js</code></summary>
@@ -856,7 +856,7 @@ useGLTF.preload('/models/hacker-room.glb');
 
 </details>
 
-## `<a name="links">`🔗 Links`</a>`
+## `<a name="links">`🔗 Links `</a>`
 
 Here is the list of all the resources used in the project video:
 
@@ -869,11 +869,11 @@ Here is the list of all the resources used in the project video:
 - [Mixamo](https://www.mixamo.com/)
 - [FBX Animations ZIP](https://drive.google.com/file/d/1yQhrRvEQFEwxbjG2qelv_T-gAatXJ3N1/view?usp=sharing)
 
-## `<a name="assets">`🔗 Assets`</a>`
+## `<a name="assets">`🔗 Assets `</a>`
 
 Models and Assets used in the project can be found [here](https://drive.google.com/file/d/1UiJyotDmF2_tBC-GeLpRZuFY_gx5e7iX/view?usp=sharing)
 
-## `<a name="more">`🚀 More`</a>`
+## `<a name="more">`🚀 More `</a>`
 
 **Advance your skills with Next.js 14 Pro Course**
 
