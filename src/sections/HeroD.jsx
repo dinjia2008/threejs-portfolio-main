@@ -57,8 +57,12 @@ const HeroD = () => {
       <Leva />
       <Canvas className="w-full h-full absolute top-0 left-0 z-0">
         <Suspense fallback={<CanvasLoader />}>
-          <HackerRoom />
-          <directionalLight intensity={111.5}/>
+          <HackerRoom
+            position={[x.positionX, x.positionY, x.positionZ]}
+            rotation={[x.rotationX, x.rotationY, x.rotationZ]}
+            scale={x.scale}
+          />
+          <directionalLight intensity={111.5} />
           <OrbitControls />
         </Suspense>
       </Canvas>
