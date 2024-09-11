@@ -1,10 +1,50 @@
 import { Canvas } from '@react-three/fiber';
 import Button from '../components/Button.jsx';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { HackerRoom } from '../../public/models/HackerRoom/Scene.jsx';
+import { Suspense } from 'react';
+import CanvasLoader from '../components/Loading.jsx';
+import { Leva, useControls } from 'leva';
 
 const HeroD = () => {
   // Use media queries to determine screen size
+  const x = useControls('HackerRoom', {
+    positionX: {
+      value: 2.5,
+      min: -10,
+      max: 10,
+    },
+    positionY: {
+      value: 2.5,
+      min: -10,
+      max: 10,
+    },
+    positionZ: {
+      value: 2.5,
+      min: -10,
+      max: 10,
+    },
+    rotationX: {
+      value: 0.5,
+      min: -10,
+      max: 10,
+    },
+    rotationY: {
+      value: 0.5,
+      min: -10,
+      max: 10,
+    },
+    rotationZ: {
+      value: 0.5,
+      min: -10,
+      max: 10,
+    },
+    scale: {
+      value: 1,
+      min: 0.1,
+      max: 10,
+    },
+  });
 
   return (
     <section className="min-h-screen w-full flex flex-col relative" id="home">
@@ -14,12 +54,14 @@ const HeroD = () => {
         </p>
         <p className="hero_tag text-gray_gradient">Building products & Brands</p>
       </div>
-      <Canvas className='w-full h-full absolute top-0 left-0 z-0'>
-        <HackerRoom />
-        <OrbitControls />
-        <Environment preset="sunset" background  />
+      <Leva />
+      <Canvas className="w-full h-full absolute top-0 left-0 z-0">
+        <Suspense fallback={<CanvasLoader />}>
+          <HackerRoom />
+          <directionalLight intensity={111.5}/>
+          <OrbitControls />
+        </Suspense>
       </Canvas>
-
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
         <a href="#about" className="w-fit">
           <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
