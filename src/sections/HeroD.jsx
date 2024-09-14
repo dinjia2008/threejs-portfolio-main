@@ -10,37 +10,37 @@ const HeroD = () => {
   // Use media queries to determine screen size
   const x = useControls('HackerRoom', {
     positionX: {
-      value: 2.5,
+      value: 0,
       min: -10,
       max: 10,
     },
     positionY: {
-      value: 2.5,
+      value: 0,
       min: -10,
       max: 10,
     },
     positionZ: {
-      value: 2.5,
+      value: 0,
       min: -10,
       max: 10,
     },
     rotationX: {
-      value: 0.5,
+      value: 0,
       min: -10,
       max: 10,
     },
     rotationY: {
-      value: 0.5,
+      value: 3,
       min: -10,
       max: 10,
     },
     rotationZ: {
-      value: 0.5,
+      value: 0,
       min: -10,
       max: 10,
     },
     scale: {
-      value: 1,
+      value: 0.1,
       min: 0.1,
       max: 10,
     },
@@ -53,10 +53,11 @@ const HeroD = () => {
           Hi, I am Adrian <span className="waving-hand">✌</span>
         </p>
         <p className="hero_tag text-gray_gradient">Building products & Brands</p>
+        <p></p>
       </div>
       <Leva />
-      <div   className="w-full h-full absolute inset-0">
-        <Canvas className="w-full h-full">
+      <div className="w-full h-full absolute inset-0">
+        <Canvas className="w-full h-full" camera={{ fov: 75, near: 0.1, far: 100000, position:[0,12,30]}}>
           <Suspense fallback={<CanvasLoader />}>
             <HackerRoom
               position={[x.positionX, x.positionY, x.positionZ]}
