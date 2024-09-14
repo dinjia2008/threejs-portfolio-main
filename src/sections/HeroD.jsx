@@ -1,10 +1,14 @@
 import { Canvas } from '@react-three/fiber';
 import Button from '../components/Button.jsx';
 import { OrbitControls } from '@react-three/drei';
+import { PerspectiveCamera } from '@react-three/drei';
 import { HackerRoom } from '../../public/models/HackerRoom/Scene.jsx';
 import { Suspense } from 'react';
 import CanvasLoader from '../components/Loading.jsx';
 import { Leva, useControls } from 'leva';
+import { useMediaQuery } from 'react-responsive';
+import { calculateSizes } from '../constants';
+import { TargetD} from '../components/TargetD'
 
 const HeroD = () => {
   // Use media queries to determine screen size
@@ -45,6 +49,10 @@ const HeroD = () => {
       max: 10,
     },
   });
+  const isSmall = useMediaQuery({ maxWidth: 440 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  const sizes = calculateSizes(isSmall, isMobile, isTablet);
 
   return (
     <section className="min-h-screen w-full flex flex-col relative" id="home">
@@ -57,13 +65,13 @@ const HeroD = () => {
       </div>
       <Leva />
       <div className="w-full h-full absolute inset-0">
-        <Canvas className="w-full h-full" camera={{ fov: 75, near: 0.1, far: 100000, position:[0,12,30]}}>
+        <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
-            <HackerRoom
-              position={[x.positionX, x.positionY, x.positionZ]}
-              rotation={[x.rotationX, x.rotationY, x.rotationZ]}
-              scale={x.scale}
-            />
+            <PerspectiveCamera makeDefault position={[0, 0, 20]} />
+            <HackerRoom position={sizes.deskPosition} rotation={[0, -Math.PI, 0]} scale={sizes.deskScale} />
+            <group>
+              <TargetD postion={sizes.targetPosition}/>
+            </group>
             <directionalLight intensity={1.5} />
             <ambientLight intensity={0.5} />
             <OrbitControls />
