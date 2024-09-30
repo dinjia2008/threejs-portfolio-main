@@ -1,14 +1,15 @@
-import { Canvas } from '@react-three/fiber';
-import Button from '../components/Button.jsx';
-import { OrbitControls } from '@react-three/drei';
-import { PerspectiveCamera } from '@react-three/drei';
-import { HackerRoom } from '../../public/models/HackerRoom/Scene.jsx';
 import { Suspense } from 'react';
-import CanvasLoader from '../components/Loading.jsx';
 import { Leva, useControls } from 'leva';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import { useMediaQuery } from 'react-responsive';
 import { calculateSizes } from '../constants';
-import { TargetD} from '../components/TargetD'
+import { PerspectiveCamera } from '@react-three/drei';
+import Button from '../components/Button.jsx';
+import { TargetD } from '../components/TargetD';
+import CanvasLoader from '../components/Loading.jsx';
+import { HackerRoom } from '../../public/models/HackerRoom/Scene.jsx';
+import { ReactLogoD } from '../components/ReactLogoD.jsx';
 
 const HeroD = () => {
   // Use media queries to determine screen size
@@ -63,14 +64,16 @@ const HeroD = () => {
         <p className="hero_tag text-gray_gradient">Building products & Brands</p>
         <p></p>
       </div>
-      <Leva />
+      <Leva collapsed={true}  />
       <div className="w-full h-full absolute inset-0">
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
             <HackerRoom position={sizes.deskPosition} rotation={[0, -Math.PI, 0]} scale={sizes.deskScale} />
+            <ReactLogoD position={sizes.reactLogoPosition} />
+
             <group>
-              <TargetD postion={sizes.targetPosition}/>
+              <TargetD postion={sizes.targetPosition} />
             </group>
             <directionalLight intensity={1.5} />
             <ambientLight intensity={0.5} />
