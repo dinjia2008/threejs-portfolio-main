@@ -10,6 +10,9 @@ import { TargetD } from '../components/TargetD';
 import CanvasLoader from '../components/Loading.jsx';
 import { HackerRoom } from '../../public/models/HackerRoom/Scene.jsx';
 import { ReactLogoD } from '../components/ReactLogoD.jsx';
+import Cube from '../components/Cube.jsx';
+import Ring from '../components/Rings.jsx';
+import HeroCamera from '../components/HeroCamera.jsx';
 
 const HeroD = () => {
   // Use media queries to determine screen size
@@ -54,6 +57,7 @@ const HeroD = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
+  console.log(sizes);
 
   return (
     <section className="min-h-screen w-full flex flex-col relative" id="home">
@@ -64,20 +68,24 @@ const HeroD = () => {
         <p className="hero_tag text-gray_gradient">Building products & Brands</p>
         <p></p>
       </div>
-      <Leva collapsed={true}  />
+      <Leva collapsed={true} />
       <div className="w-full h-full absolute inset-0">
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
-            <PerspectiveCamera makeDefault position={[0, 0, 20]} />
-            <HackerRoom position={sizes.deskPosition} rotation={[0, -Math.PI, 0]} scale={sizes.deskScale} />
-            <ReactLogoD position={sizes.reactLogoPosition} />
+            <PerspectiveCamera makeDefault position={[0, 0, 30]} />
+            <HeroCamera isMobile={isMobile}>
+              <HackerRoom position={sizes.deskPosition} rotation={[0.1, -Math.PI, 0]} scale={sizes.deskScale} />
+            </HeroCamera>
 
             <group>
-              <TargetD postion={sizes.targetPosition} />
+              <TargetD rotation={[0, Math.PI / 5, 0]} scale={1.5} position={sizes.targetPosition} />
+              <ReactLogoD position={sizes.reactLogoPosition} />
+              <Cube position={sizes.cubePosition} />
+              <Ring position={sizes.ringPosition} />
             </group>
             <directionalLight intensity={1.5} />
             <ambientLight intensity={0.5} />
-            <OrbitControls />
+            {/* <OrbitControls /> */}
           </Suspense>
         </Canvas>
       </div>

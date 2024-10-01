@@ -7,13 +7,17 @@ Source: https://sketchfab.com/3d-models/hacker-room-stylized-a0cfe6edf2dd494c8a9
 Title: Hacker Room - Stylized
 */
 
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, useTexture } from '@react-three/drei';
 
 export function HackerRoom(props) {
-  const { nodes, materials } = useGLTF('/models/HackerRoom/scene.gltf')
+  const { nodes, materials } = useGLTF('/models/HackerRoom/scene.gltf');
+  const monitorTexture = useTexture('public/textures/desk/monitor.png');
+  const sceneTexture = useTexture('public/textures/desk/screen.png');
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.computer_computer_mat_0.geometry} material={materials.computer_mat} />
+      <mesh geometry={nodes.computer_computer_mat_0.geometry} material={materials.computer_mat}>
+        <meshMatcapMaterial map={monitorTexture} />
+      </mesh>
       <mesh geometry={nodes.server_server_mat_0.geometry} material={materials.server_mat} />
       <mesh geometry={nodes.vhs_vhsPlayer_mat_0.geometry} material={materials.vhsPlayer_mat} />
       <mesh geometry={nodes.shelf_stand_mat_0.geometry} material={materials.stand_mat} />
@@ -23,12 +27,14 @@ export function HackerRoom(props) {
       <mesh geometry={nodes.table_table_mat_0.geometry} material={materials.table_mat} />
       <mesh geometry={nodes.Cables_cables_mat_0.geometry} material={materials.cables_mat} />
       <mesh geometry={nodes.props_props_mat_0.geometry} material={materials.props_mat} />
-      <mesh geometry={nodes.screen_screens_0.geometry} material={materials.screens} />
+      <mesh geometry={nodes.screen_screens_0.geometry} material={materials.screens}>
+        <meshMatcapMaterial map={sceneTexture} />
+      </mesh>
       <mesh geometry={nodes.screen_glass_glass_0.geometry} material={materials.glass} />
       <mesh geometry={nodes.Ground_ground_mat_0.geometry} material={materials.ground_mat} />
       <mesh geometry={nodes.peripherals_key_mat_0.geometry} material={materials.key_mat} />
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/models/HackerRoom/scene.gltf')
+useGLTF.preload('/models/HackerRoom/scene.gltf');

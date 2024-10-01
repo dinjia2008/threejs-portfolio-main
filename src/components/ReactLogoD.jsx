@@ -7,18 +7,19 @@ Title: React logo
 */
 
 import { Float, useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
 
 export function ReactLogoD(props) {
-  const { nodes, materials } = useGLTF('public/models/react.glb');
+  const { nodes } = useGLTF('public/models/react.glb');
 
   return (
-    <Float speed={5} floatIntensity={1.5} >
-      <group {...props} scale={0.5} position={[5, 3, 1]} dispose={null}>
+    <Float speed={5} floatIntensity={1.5}>
+      <group {...props} scale={0.3} dispose={null}>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes['React-Logo_Material002_0'].geometry}
-          material={materials['Material.002']}
+          material={new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/public/textures/rings.png') })}
           position={[0, 0.079, 0.181]}
           rotation={[0, 0, -Math.PI / 2]}
           scale={[0.392, 0.392, 0.527]}
@@ -29,4 +30,3 @@ export function ReactLogoD(props) {
 }
 
 useGLTF.preload('/react.glb');
-

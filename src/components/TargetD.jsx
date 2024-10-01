@@ -1,7 +1,7 @@
-import { useGLTF } from '@react-three/drei';
+import { useGLTF, Center } from '@react-three/drei';
 import { useRef } from 'react';
 import gsap from 'gsap';
-import { useGSAP } from "@gsap/react";
+import { useGSAP } from '@gsap/react';
 
 export const TargetD = (props) => {
   const targetRef = useRef();
@@ -19,8 +19,10 @@ export const TargetD = (props) => {
   });
 
   return (
-    <mesh {...props} ref={targetRef} rotation={[0, Math.PI / 5, 0]} scale={1.5} position={[-8,0,-3]}>
-      <primitive object={scene} />
-    </mesh>
+    <group>
+      <mesh {...props} ref={targetRef}>
+        <primitive object={scene} />
+      </mesh>
+    </group>
   );
 };
